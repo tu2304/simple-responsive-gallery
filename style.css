@@ -1,0 +1,63 @@
+/* Thiết lập chung */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 25px;
+}
+
+/* Khung chứa Gallery */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Các phần tử ảnh mặc định (Desktop lớn hơn 700px: hiển thị 4 ảnh trên 1 dòng) */
+.gallery-item {
+    flex: 0 0 calc(25% - 11.25px); /* (100% / 4) trừ đi khoảng chia gap */
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+.gallery-item p {
+    margin-top: 10px;
+    color: #555;
+    font-size: 14px;
+}
+
+/* 📱 Media Query 1: Màn hình nhỏ hơn 700px -> Hiển thị 2 ảnh trên 1 dòng */
+@media (max-width: 700px) {
+    .gallery-item {
+        flex: 0 0 calc(50% - 7.5px); /* (100% / 2) trừ đi khoảng gap */
+    }
+}
+
+/* 📱 Media Query 2: Màn hình nhỏ hơn 500px -> Hiển thị 1 ảnh trên 1 dòng */
+@media (max-width: 500px) {
+    .gallery-item {
+        flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng */
+    }
+}
